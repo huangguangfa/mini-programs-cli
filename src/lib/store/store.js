@@ -1,14 +1,8 @@
-/**
- * 判断一个对象是否是普通对象
- * return Boolean
- * */
+
  function isPlainObject(val) {
     return Object.prototype.toString.call(val) === '[object Object]'
   }
   
-  /**
-   * 对象合并，浅克隆，后面参数的值会覆盖前面的值,所有参数必须是一个对象Object
-   * */
   function objMerge() {
     let args = Array.from(arguments);
     if (args.length > 1) {
@@ -22,38 +16,8 @@
     }
     return args[0];
   }
-  let globalinstance;
-  (function() {
-    const noop = () => {}
-    try {
-      globalinstance = my
-    } catch (err) {
-      noop()
-    }
-    try {
-      globalinstance = wx
-    } catch (err) {
-      noop()
-    }
-    try {
-      globalinstance = jd
-    } catch (err) {
-      noop()
-    }
-    try {
-      globalinstance = swan
-    } catch (err) {
-      noop()
-    }
-    try {
-      globalinstance = tt
-    } catch (err)  {
-      noop()
-    }
-    if (!globalinstance) {
-      throw new Error('[minix]暂不支持当前小程序，当前支持微信wx、阿里my、京东jd、百度swan、头条tt')
-    }
-  })()
+  let globalinstance = wx;
+
   
   class Store {
     constructor(option = {}) {
@@ -66,14 +30,10 @@
         _state_ = this._unifyStateStyle(option.state)
       }
       this.state = this._initState(_state_)
-      console.log(this.state)
-      // this.mutation = option.mutation || {}
       // 这里暂时不接受自定义mutation
       this.mutation = {}
       this.action = option.action || {}
-      // if (this.easyMode) {
       this._polyfillMutation(this.mutation, _state_)
-      // }
     }
   
     _initState(_state_ = {}) {
@@ -202,15 +162,16 @@
       }
       let _store = this
       let _needMount = needMount || {}
-      // 将$store修正为实例
+      // 将$store为实例
       _needMount.$store = _store
       // 待安装队列
       let fns = [App, Page, Component, Behavior]
       // 组件类函数， 包括Component, Behavior
-      let componentLikeFns = [Component, Behavior]
-      fns.forEach(originFn => {
+      let componentLikeFns = [ Component, Behavior ]
+      fns.forEach( originFn => {
         // 劫持后的函数
         const highjackedFn = (config) => {
+          console.log(111)
           !config && (config = {})
           // 携带path的基本是组件了
           // 旧的注入方法

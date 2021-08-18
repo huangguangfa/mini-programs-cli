@@ -1,5 +1,4 @@
 import "@utils/prototype";
-import '@lib/mixins';
 import env from "@env";
 import EventBus from "@lib/eventBus";
 import Tips from "@utils/toast";
