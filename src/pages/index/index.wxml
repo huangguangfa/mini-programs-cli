@@ -1,4 +1,6 @@
 <view class="index">
     {{ name }}
-    <button bindtap="toPage">进入demo页面</button>
+    <view>{{cartCount || 0 }}</view>
+    <view class="mark">备注：{{mark || '暂无'}}</view>
+    <button bindtap="add">进入demo页面</button>
 </view>
