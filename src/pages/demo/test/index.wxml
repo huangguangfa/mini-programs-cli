@@ -1,0 +1,4 @@
+<view>
+    {{ name  }} ------ {{ test }}
+    <button bindtap="updata">test修改</button>
+</view>

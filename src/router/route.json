@@ -1,0 +1,12 @@
+{
+    "pages": [
+        {
+            "name": "demo",
+            "path": "demo/index"
+        },
+        {
+            "name": "index",
+            "path": "index/index"
+        }
+    ]
+}

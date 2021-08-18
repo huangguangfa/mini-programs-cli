@@ -1,0 +1,59 @@
+{
+  "_from": "mini-program-webpack-loader@^1.0.24",
+  "_id": "mini-program-webpack-loader@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha1-u1MF6Yuo20nKCQdQ/09Sk/QJpIs=",
+  "_location": "/mini-program-webpack-loader",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "mini-program-webpack-loader@^1.0.24",
+    "name": "mini-program-webpack-loader",
+    "escapedName": "mini-program-webpack-loader",
+    "rawSpec": "^1.0.24",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.24"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/mini-program-webpack-loader/download/mini-program-webpack-loader-1.1.1.tgz",
+  "_shasum": "bb5305e98ba8db49ca090750ff4f5293f409a48b",
+  "_spec": "mini-program-webpack-loader@^1.0.24",
+  "_where": "C:\\Users\\EDZ\\Documents\\work\\code\\weapp\\store",
+  "author": {
+    "name": "liujiandong"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "colors": "^1.3.0",
+    "console.table": "^0.10.0",
+    "enhanced-resolve": "^4.1.0",
+    "htmlparser2": "^3.9.2",
+    "lebab": "^3.0.3"
+  },
+  "deprecated": false,
+  "description": "mini-program webpack loader",
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "webpack": "^4.9.1"
+  },
+  "keywords": [
+    "webpack",
+    "mini-program"
+  ],
+  "license": "ISC",
+  "main": "src/index.js",
+  "name": "mini-program-webpack-loader",
+  "scripts": {
+    "build": "npx babel src --out-dir lib",
+    "test": "echo \"just demo\" && exit 1"
+  },
+  "version": "1.1.1"
+}

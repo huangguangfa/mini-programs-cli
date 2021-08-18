@@ -1,0 +1,4 @@
+<view class="index">
+    {{ name }}
+    <button bindtap="toPage">进入demo页面</button>
+</view>
