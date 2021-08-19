@@ -30,7 +30,7 @@ App({
         Http.setDefaultValue({ baseUrl: env.api, httpSuccessBusinessCodes: ['100000'] });
         // 初始化用户信息（包含登录）
         User.creatInstance({ app: this, appId: env.appId });
-        //初始化全局的东西
+        //初始化全局api
         initPage(this);
         // 获取系统信息
         this.getSystemInfo();
