@@ -1,11 +1,3 @@
-/*
- * @Author: elvis.lam 
- * @Desc: 常用日期函数封装
- * @Date: 2020-11-10 17:38:45 
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2020-12-08 17:36:34
- */
-
 export const formatDiffDateToString = (time, nowTime) => {
     // 时间展示规则
     // 1分钟以内，展示刚刚

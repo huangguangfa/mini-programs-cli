@@ -6,12 +6,7 @@ import Location from "@utils/location";
 import User from "@utils/user";
 import Http from "@utils/http";
 import initPage from "@utils/initPage";
-import { patchPage } from "@lib/miniprogrampatch";
 import { checkMiniProgramUpgrade } from "@utils/system";
-
-
-import store from './lib/store/index.js';
-store.install()
 
 App({
     global: {
@@ -35,9 +30,8 @@ App({
         Http.setDefaultValue({ baseUrl: env.api, httpSuccessBusinessCodes: ['100000'] });
         // 初始化用户信息（包含登录）
         User.creatInstance({ app: this, appId: env.appId });
-        // 重写page方法
-        // initPage(this);
-        Page = patchPage(Page);
+        //初始化全局的东西
+        initPage(this);
         // 获取系统信息
         this.getSystemInfo();
     },

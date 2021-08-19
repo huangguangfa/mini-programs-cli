@@ -1,8 +1,5 @@
-import create from "@omi/create";
-import store from "@/store/index";
 
-create.Page(store, {
-    use: ["reservation.type","reservation.info.name"],
+Page({
     data:{
         name:'demo'
     },

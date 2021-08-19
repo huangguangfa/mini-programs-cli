@@ -1,10 +1,3 @@
-/*
- * @Author: elvis.lam
- * @Desc: 用户类
- * @Date: 2020-11-03 16:21:50
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2021-08-10 14:09:24
- */
 
 /**
  * 使用说明

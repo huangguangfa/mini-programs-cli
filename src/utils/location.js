@@ -1,11 +1,3 @@
-/*
- * @Author: elvis.lam
- * @Desc: 定位信息类
- * @Date: 2020-11-07 10:18:18
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2021-05-12 14:44:36
- */
-
 /**
  * 使用说明
  * wx._location.check((location) => { callback... }) 初始化和检查定位

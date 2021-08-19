@@ -1,13 +1,4 @@
-/*
- * @Author: elvis.lam
- * @Desc: wxml操作函数
- * @Date: 2020-11-10 17:38:45
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2021-04-08 17:55:31
- */
-
 const app = getApp();
-
 /**
  * 获取元素信息
  * @param {String} selector 可以是元素id名 类名 或者标签名

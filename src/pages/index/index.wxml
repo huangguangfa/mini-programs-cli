@@ -1,6 +1,9 @@
 <view class="index">
     {{ name }}
-    <view>{{cartCount || 0 }}</view>
-    <view class="mark">备注：{{mark || '暂无'}}</view>
-    <button bindtap="add">进入demo页面</button>
+    <view>{{ count}}</view>
+    <view class="mark"> 门店名称: {{ store_name }}</view>
+    <view class="mark"> 门店信息: {{ store_info.id }}</view>
+    <view wx:for="{{ store_info.list }}" wx:key="index">{{ item }}</view>
+    <button bindtap="updateStore">修改信息</button>
+    <button bindtap="toPage">to---demo页面</button>
 </view>

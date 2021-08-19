@@ -210,3 +210,11 @@ export function  getQueryByScene(params,name) {
     if (r2 != null) return unescape(r2[2]);
     return null;
 }
+
+export function isObject (v) {
+    return Object.prototype.toString.call(v) === '[object Object]'
+}
+export function isArray (arr) {
+    return Array.isArray(arr)
+}
+

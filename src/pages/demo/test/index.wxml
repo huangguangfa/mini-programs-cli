@@ -1,4 +1,5 @@
 <view>
     {{ name  }} ------ {{ test }}
     <button bindtap="updata">test修改</button>
+    <button bindtap="toPage">to--Home</button>
 </view>

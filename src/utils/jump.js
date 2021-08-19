@@ -1,10 +1,4 @@
-/*
- * @Author: elvis.lam
- * @Desc: 小程序跳转
- * @Date: 2020-09-01 16:48:40
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2021-07-05 17:07:42
- */
+
 import env from "@env";
 import { GPS } from "@utils/util";
 

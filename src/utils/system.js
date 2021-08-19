@@ -1,10 +1,4 @@
-/*
- * @Author: elvis.lam
- * @Desc: 系统信息工具函数
- * @Date: 2020-11-07 10:18:18
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2021-04-19 18:16:13
- */
+
 const app = getApp();
 
 /**

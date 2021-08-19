@@ -1,7 +1,4 @@
-import create from "@omi/create";
-import store from "@/store";
-
-create.Component(store,{
+Component({
     data:{
         name:'test',
         test:false
@@ -26,6 +23,9 @@ create.Component(store,{
             this.setData({
                 test:!this.data.test
             })
+        },
+        toPage(){
+            this.$router.go('index')
         }
     }
 })

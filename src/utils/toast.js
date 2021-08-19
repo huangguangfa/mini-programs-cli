@@ -1,10 +1,3 @@
-/*
- * @Author: elvis.lam
- * @Desc: 微信api封装
- * @Date: 2020-06-11 19:21:50
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2021-08-02 14:40:03
- */
 
 /**
  * 消息提示封装

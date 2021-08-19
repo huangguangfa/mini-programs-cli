@@ -1,14 +1,21 @@
-import reservation from "./modules/reservation";
-
-
-const modules = [reservation];
-const store = {
-    data: {}
-};
-
-for (const item of modules) {
-    const { name, data, ...methods } = item;
-    store.data[name] = data;
-    store[name] = methods;
-}
-export default store;
+import Store from './store.js';
+export default new Store({
+    state: {
+        count: {
+            ISLOCAL: true,
+            default: 0
+        },
+        store_name:'张三',
+        store_info:{
+            id:'1234567',
+            list:[1,2,3,4]
+        }
+    },
+    action: {
+        asyncSetUserInfo({ commit },data){
+            setTimeout( () =>{
+                commit('store_info',data)
+            },1000)
+        }
+    }
+})

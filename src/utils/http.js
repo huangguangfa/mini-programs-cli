@@ -1,13 +1,5 @@
-/*
- * @Author: elvis.lam
- * @Desc: http封装
- * @Date: 2020-08-24 16:21:50
- * @Last Modified by: elvis.lam
- * @Last Modified time: 2021-08-16 16:06:40
- * @See https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html
- */
+
 import Tips from "./toast";
-import User from "./user";
 import { RLogWarn } from "./log";
 
 /**
