@@ -14,6 +14,7 @@ function observe( targetData, key, watch_fn, deep ){
             configurable: true,
             enumerable: true,
             set( value ) {
+                console.log('watch变化了',value)
                 if ( value === oldVal ) return;
                 watch_fn( value, oldVal, key );
                 oldVal = value;
@@ -26,11 +27,11 @@ function observe( targetData, key, watch_fn, deep ){
 }
 
 export function initWatcher(option) {
-    if( option.$watch && Object.keys( option.$watch ).length ){
+    if( option.watch && Object.keys( option.watch ).length ){
         const targetData = option.data;
-        const watch_option = option.$watch;
+        const watch_option = option.watch;
         Object.keys( watch_option ).forEach( key => {
-            const watch_fn = watch_option[key].handler || watch_option[key]
+            const watch_fn = watch_option[key].handler || watch_option[key];
             const deep = watch_option[key].deep
             observe( targetData, key, watch_fn, deep )
         })

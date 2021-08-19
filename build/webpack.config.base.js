@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 const baseResolve = require("./webpack.config.base.resolve");
 const baseLoaders = require("./webpack.config.base.loaders");
-const CompileContentReplace = require('./plugin/compileContentReplace/index')
+const CompileContentReplace = require('./plugin/compileContentReplace/index');
 module.exports = {
     mode: "development",
     target: "node",

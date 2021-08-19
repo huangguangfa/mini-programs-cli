@@ -1,5 +1,6 @@
 <view class="index">
     {{ name }}
+    {{ test.a }}
     <view>{{ count}}</view>
     <view class="mark"> 门店名称: {{ store_name }}</view>
     <view class="mark"> 门店信息: {{ store_info.id }}</view>
