@@ -3,6 +3,7 @@ Component({
         name:'test',
         test:false
     },
+    mapState: ['count', 'store_name','store_info'],
     pageLifetimes:{
         show(){
             console.log(2222)
@@ -11,12 +12,8 @@ Component({
             })
         }
     },
-    
     ready(){
         console.log('show',this.data.test)
-        // this.setData({test:true},() =>{
-        //     console.log('show',this.data.test)
-        // })
     },
     methods:{
         updata(){

@@ -1,6 +1,7 @@
 <view>
-    {{ name }} --- {{ $.reservation.info.name }} ------ {{ $.reservation.type }}
+    {{ name }} 
     <button bindtap="updateStore">修改store</button>
+    <view class="mark"> 门店名称: {{ store_name }}</view>
     <view style="margin-top:20px;margin-bottom:20px;">------------子组件---------</view>
     <test></test>
 </view>

@@ -1,4 +1,4 @@
-import Router from "@lib/router";
+import Router from "@lib/router/index.js";
 import route from "./route.json";
 
 // 初始化路由实例

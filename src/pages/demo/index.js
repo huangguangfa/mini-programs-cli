@@ -1,13 +1,10 @@
 
 Page({
+    mapState: ['store_name'],
     data:{
         name:'demo'
     },
     onLoad(){
-        console.log('this',this)
+        console.log('this_demo',this)
     },
-    updateStore(){
-        this.store.data.reservation.type = '修改后的test'
-        // this.store.data.reservation.info.name = '修改后的李四'
-    }
 });

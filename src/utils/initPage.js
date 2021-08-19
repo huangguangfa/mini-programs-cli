@@ -1,6 +1,6 @@
 import router from "@/router";
 import Tips from "./toast";
-import { initWatcher } from "@/lib/omi/watch/index";
+import { initWatcher } from "@/lib/watch/index";
 import store from '../store/index.js';
 export default function initPage() {
     //初始化页面配置对象
@@ -12,7 +12,7 @@ export default function initPage() {
     }
     for( let key in INITCONFIG ){
         const { instance, lifetimes } = INITCONFIG[key];
-        let receivePageConfig = ( pageConfig = {} ) =>{
+        let mutator = ( pageConfig = {} ) =>{
             const originlifecycleHook = pageConfig[lifetimes];
             pageConfig[lifetimes] = function(options){
                 router.pageOnload();
@@ -20,7 +20,6 @@ export default function initPage() {
                 this.$router = router;
                 this.$tips = Tips;
                 store.initStore( pageConfig ,this)
-                //watch绑定
                 initWatcher(this);
                 originlifecycleHook && originlifecycleHook.apply(this, arguments)
             }
@@ -28,16 +27,16 @@ export default function initPage() {
         }
         switch (instance) {
             case App:
-                App = receivePageConfig
+                App = mutator
                 break;
             case Page:
-                Page = receivePageConfig
+                Page = mutator
                 break;
             case Component:
-                Component = receivePageConfig
+                Component = mutator
                 break;
             case Behavior:
-                Behavior = receivePageConfig
+                Behavior = mutator
                 break;
             default:
             return

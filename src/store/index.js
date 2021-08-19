@@ -1,4 +1,4 @@
-import Store from './store.js';
+import Store from '@/lib/store/index.js';
 export default new Store({
     state: {
         count: {

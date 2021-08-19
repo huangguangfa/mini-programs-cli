@@ -1,5 +1,7 @@
 <view>
     {{ name  }} ------ {{ test }}
+    <view class="mark"> test门店名称: {{ store_name }}</view>
+    <view class="mark"> test门店信息: {{ store_info.id }}</view>
     <button bindtap="updata">test修改</button>
     <button bindtap="toPage">to--Home</button>
 </view>
