@@ -97,7 +97,7 @@ class Store {
     initStore( pageConfig, that ){
         let STOREINS = this;
         that.$store = STOREINS;
-        if (pageConfig.mapState) {
+        if ( pageConfig.mapState ) {
             let mapState = [];
             if (isArray(pageConfig.mapState)) {
                 mapState = pageConfig.mapState

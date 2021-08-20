@@ -194,27 +194,12 @@ export function formatNumber(num){
     return num;
 }
 
-/**
- * 获取太阳码参数 标准格式c=123
- * @param params 太阳码支持c=x格式、c-x格式
- * @param name
- * @returns {string|null}
- */
-export function  getQueryByScene(params,name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-    var r = params.match(reg);
-    if (r != null) return unescape(r[2]);
-
-    var reg2=new RegExp("(^|&)" + name + "-([^&]*)(&|$)", "i");
-    var r2=params.match(reg2);
-    if (r2 != null) return unescape(r2[2]);
-    return null;
-}
-
 export function isObject (v) {
     return Object.prototype.toString.call(v) === '[object Object]'
 }
 export function isArray (arr) {
     return Array.isArray(arr)
 }
+
+
 

@@ -6,5 +6,6 @@
     <view class="mark"> 门店信息: {{ store_info.id }}</view>
     <view wx:for="{{ store_info.list }}" wx:key="index">{{ item }}</view>
     <button bindtap="updateStore">修改信息</button>
+    <button bindtap="updateLocalData">修改data数据</button>
     <button bindtap="toPage">to---demo页面</button>
 </view>
