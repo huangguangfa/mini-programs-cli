@@ -2,7 +2,7 @@
 
 #### 基于webpack4实现的一套小程序cli、目前集成： router管理、store全局状态、watch监听、在后面将会考虑把compute加入进来！
 
-#### store全局状态管理的使用 （ 基本上和vue那一套差不多、但也有一些区别）
+> #### store全局状态管理的使用 （ 基本上和vue那一套差不多、但也有一些区别）
 ```js
 //注册store字段
 import Store from '@/lib/store/index.js';
@@ -53,7 +53,7 @@ Page({
 
 ```
 
-#### router路由说明
+> #### router路由说明
 - 通过全局wx._router 或者页面 this.$router操作路由实例
 - 通过维护一个route.json页面列表，this.$router跳转通过页面对应name进行寻址，
 - 全局路由钩子beforeEach，可以对页面跳转前进行拦截操作
@@ -146,4 +146,40 @@ onLoad(options){
  * 获取路由跳转params
  */
 this.$router.getParams();
+```
+
+> ##### watch使用说明
+```js
+Page({
+    data:{
+        name:'张三',
+        age:18,
+        test:{
+            n:'张1111'
+        }
+    },
+    watch:{
+        "test.n":{
+            handler(newName, oldName) {
+                console.log('变化了',newName, oldName)
+            }
+        },
+        name(){
+            console.log('变化了')
+        },
+        age:{
+            handler(newName, oldName) {
+                console.log('变化了',newName, oldName)
+            },
+            immediate:true
+        }
+    },
+    update(){
+        this.setData({
+            name:'李四'
+            ['test.a']:'测试111111111111111111'
+        })
+    }
+})
+
 ```
