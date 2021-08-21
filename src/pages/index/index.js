@@ -15,6 +15,11 @@ Page({
     toPage(){
         this.$router.go('demo')
     },
+    computed: {
+        demo: function () {
+            return this.name
+        }
+    },
     watch:{
         "test.a":{
             handler(newName, oldName) {
@@ -38,10 +43,8 @@ Page({
     },
     updateLocalData(){
         this.setData({
-            // name:'李四'
-            ['test.a']:'测试111111111111111111'
-        }, () =>{
-            console.log(this.data.list)
+            name:'李四'
+            // ['test.a']:'测试111111111111111111'
         })
     }
 });

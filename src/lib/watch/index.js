@@ -3,14 +3,14 @@
  * @Date: 2021-3-8
  * @description:页面data的watch监听
  */
-function observe( targetData, key, watch_fn ){
+function observe( targetData, key, userDef ){
     let oldVal = targetData[key];
     Object.defineProperty(targetData, key, {
         configurable: true,
         enumerable: true,
         set( value ) {
             if ( value === oldVal ) return;
-            watch_fn( value, oldVal, key );
+            userDef( value, oldVal, key );
             oldVal = value;
         },
         get() {
@@ -18,7 +18,6 @@ function observe( targetData, key, watch_fn ){
         }
     })
 }
-
 
 export function initWatcher(option) {
     if( option.watch && Object.keys( option.watch ).length ){
@@ -30,9 +29,9 @@ export function initWatcher(option) {
             let targetObject = targetKey === null ? option.data : option.data[targetKey];
             let value = targetObject[proKey]
             const { handler, immediate } = watch_option[key];
-            const watch_fn = handler ?? watch_option[key];
-            immediate && watch_fn && watch_fn(value);
-            observe( targetObject, proKey, watch_fn )
+            const userDef = handler ?? watch_option[key];
+            immediate && watchKey && userDef(value);
+            observe( targetObject, proKey, userDef )
         })
     }
 }
