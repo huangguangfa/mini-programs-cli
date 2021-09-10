@@ -23,14 +23,14 @@ Page({
     watch:{
         "test.a":{
             handler(newName, oldName) {
-               console.log('变化了',newName, oldName)
+               console.log('change',newName, oldName)
             }
         },
         name(){
-            console.log('变化了')
+            console.log('change name')
         },
         list(){
-            console.log('变化了List')
+            console.log('change List')
         }
     },
     updateStore () {

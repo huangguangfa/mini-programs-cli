@@ -1,6 +1,6 @@
 ### 小程序cli
 
-#### 基于webpack4实现的一套小程序cli、目前集成： router管理、store全局状态、watch监听、在后面将会考虑把compute加入进来！
+#### 基于webpack4实现的一套小程序cli、目前集成：http模块、 router管理、store全局状态、watch监听、在后面将会考虑把compute加入进来！
 
 > #### store全局状态管理的使用 （ 基本上和vue那一套差不多、但也有一些区别）
 ```js
