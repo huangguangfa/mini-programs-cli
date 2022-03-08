@@ -43,7 +43,7 @@ export default function initPage() {
 }
 
 function interceptorPageInstance(pageHook, key){
-    const installPageInterceptor = new Map([
+    const active = new Map([
         [
             'App',
             () =>{
@@ -69,5 +69,5 @@ function interceptorPageInstance(pageHook, key){
             }
         ]
     ])
-    installPageInterceptor.get(key)()
+    active.get(key)()
 }
