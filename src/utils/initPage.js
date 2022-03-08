@@ -42,7 +42,6 @@ export default function initPage() {
     }
 }
 
-
 function interceptorPageInstance(pageHook, key){
     const installPageInterceptor = new Map([
         [

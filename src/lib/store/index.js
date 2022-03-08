@@ -42,7 +42,7 @@ class Store {
   
     commit( type, data ) {
         if (typeof this.mutation[type] !== 'function') {
-            throw new Error(`[minax]:The type of '${type}' is not find in state`)
+            throw new Error(`action没有定义${type}' 钩子`)
         }
         this.mutation[type](this.state, data)
         // 如果需要持久化，则存入缓存
@@ -59,7 +59,7 @@ class Store {
   
     dispatch(type, data) {
       if (typeof this.action[type] !== 'function') {
-        throw new Error(`[minax]:The type of '${type}' is not find in action`)
+        throw new Error(`action没有定义${type}' 钩子`)
       }
       this.action[type](Object.assign({}, this, {commit: this.commit.bind(this)}), data)
     }
@@ -67,7 +67,7 @@ class Store {
     //更新页面所依赖的字段setData
     updatePageStoreData(context, key, value) {
         if (!(context && context.setData)) {
-            throw new Error('Context not has setData method of updatePageStoreData')
+            throw new Error('当前页面实例没有拿到无法更新setData')
         }
         let set_data = {};
         set_data[key] = value;
@@ -79,9 +79,10 @@ class Store {
   
     //注册订阅列表
     registe( types = [], context ) {
+        console.log(types, this.state);
         types.forEach( type => {
             if ( !this.state.hasOwnProperty(type) ) {
-                throw new Error(`[minax]:The type of '${type}' is not find in state`)
+                throw new Error(`mapState注入的${type} 并没有在Store里面存在`)
             }
             this.updatePageStoreData(context, type, this.state[type]);
             if ( !this.registerQueue[type] ) {
