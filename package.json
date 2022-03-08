@@ -50,6 +50,7 @@
         "webpack-merge": "^4.1.3"
     },
     "dependencies": {
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
         "webpack-bundle-analyzer": "^4.4.2"
     },
     "description": ""

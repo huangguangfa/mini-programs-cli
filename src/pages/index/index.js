@@ -21,16 +21,22 @@ Page({
         }
     },
     watch:{
+        count(n,o){
+            console.log('vuex--count---数据变化了',n,o);
+        },
+        store_info(n, o){
+            console.log('vuex---store_info--数据变化了',n, o);
+        },
         "test.a":{
             handler(newName, oldName) {
-               console.log('change',newName, oldName)
+               console.log('watch---change',newName, oldName)
             }
         },
         name(){
-            console.log('change name')
+            console.log('watch---change name')
         },
         list(){
-            console.log('change List')
+            console.log('watch---change List')
         }
     },
     updateStore () {
@@ -43,8 +49,8 @@ Page({
     },
     updateLocalData(){
         this.setData({
-            name:'李四'
-            // ['test.a']:'测试111111111111111111'
+            name:'李四',
+            ['test.a']:'测试111111111111111111'
         })
     }
 });

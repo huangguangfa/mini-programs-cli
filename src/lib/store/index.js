@@ -1,6 +1,4 @@
 import { isArray } from "@/utils/util.js"
-
-let GLOBALINSTANCE = wx;
 class Store {
     constructor( option = {} ) {
         this.bindStorageMode = !!option.bindStorageMode;
@@ -25,11 +23,11 @@ class Store {
     }
   
     _setStorage(key, data) {
-        GLOBALINSTANCE.setStorage({ key, data  })
+        wx.setStorage({ key, data  })
     }
   
     _getStorage(key, def) {
-        let res = GLOBALINSTANCE.getStorageSync(key)
+        let res = wx.getStorageSync(key)
         return res !== '' ? res : def
     }
     
@@ -94,9 +92,9 @@ class Store {
             }
         })
     }
-    initStore( pageConfig, that ){
+    initPageStore( pageConfig, pageInstance ){
         let STOREINS = this;
-        that.$store = STOREINS;
+        pageInstance.$store = STOREINS;
         if ( pageConfig.mapState ) {
             let mapState = [];
             if (isArray(pageConfig.mapState)) {
@@ -104,7 +102,7 @@ class Store {
             } else if (typeof pageConfig.mapState === 'string') {
                 mapState.push(pageConfig.mapState)
             }
-            STOREINS.registe(mapState, that);
+            STOREINS.registe(mapState, pageInstance);
         }
     }
   }

@@ -1,6 +1,6 @@
 let env = {
     name: "dev",
-    appId: "wx3805684031a2adb8",
+    appId: "xxxx",
     // h5服务路径
     webPath: "https://111",
     // 静态资源路径

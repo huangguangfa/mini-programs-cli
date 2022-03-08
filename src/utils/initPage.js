@@ -5,41 +5,70 @@ import store from '../store/index.js';
 export default function initPage() {
     //初始化页面配置对象
     const INITCONFIG = {
-        App: { lifetimes:"onLoad", instance:App },
-        Page:{ lifetimes:"onLoad", instance:Page },
-        Component:{ lifetimes:"attached", instance:Component },
-        Behavior:{ lifetimes:"attached", instance:Behavior }
+        App: {
+            lifetimes:"onLoad",
+            instance:App,
+        },
+        Page:{
+            lifetimes:"onLoad",
+            instance:Page
+        },
+        Component:{
+            lifetimes:"attached",
+            instance:Component
+        },
+        Behavior:{
+            lifetimes:"attached",
+            instance:Behavior
+        }
     }
     for( let key in INITCONFIG ){
         const { instance, lifetimes } = INITCONFIG[key];
-        let mutator = ( pageConfig = {} ) =>{
+        let pageHook = ( pageConfig = {} ) =>{
             const originlifecycleHook = pageConfig[lifetimes];
+            //混入页面的钩子、做初始化作用
             pageConfig[lifetimes] = function(options){
                 router.pageOnload();
                 this.options = options;
                 this.$router = router;
                 this.$tips = Tips;
-                store.initStore( pageConfig ,this)
+                store.initPageStore( pageConfig ,this);
                 initWatcher(this);
-                originlifecycleHook && originlifecycleHook.apply(this, arguments)
+                originlifecycleHook && originlifecycleHook.apply(this, arguments);
             }
             instance(pageConfig)
         }
-        switch (instance) {
-            case App:
-                App = mutator
-                break;
-            case Page:
-                Page = mutator
-                break;
-            case Component:
-                Component = mutator
-                break;
-            case Behavior:
-                Behavior = mutator
-                break;
-            default:
-            return
-        }
+        interceptorPageInstance(pageHook, key);
     }
+}
+
+
+function interceptorPageInstance(pageHook, key){
+    const installPageInterceptor = new Map([
+        [
+            'App',
+            () =>{
+                App = pageHook
+            }
+        ],
+        [
+            'Page',
+            () =>{
+                Page = pageHook
+            }
+        ],
+        [
+            'Component',
+            () =>{
+                Component = pageHook
+            }
+        ],
+        [
+            'Behavior',
+            () =>{
+                Behavior = pageHook
+            }
+        ]
+    ])
+    installPageInterceptor.get(key)()
 }

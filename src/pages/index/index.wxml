@@ -1,11 +1,22 @@
 <view class="index">
-    {{ name }}
-    {{ test.a }}
-    <view>{{ count}}</view>
-    <view class="mark"> 门店名称: {{ store_name }}</view>
-    <view class="mark"> 门店信息: {{ store_info.id }}</view>
-    <view wx:for="{{ store_info.list }}" wx:key="index">{{ item }}</view>
-    <button bindtap="updateStore">修改信息</button>
-    <button bindtap="updateLocalData">修改data数据</button>
+    <view style="border-bottom:1px solid red;">
+        页面data数据:
+        {{ name }}
+        {{ test.a }}
+    </view>
+
+    <view style="display:flex;flex-wrap: wrap;border-bottom:1px solid red;">
+        vuex数据:
+        <view style="width:100%">数量:{{ count }}</view>
+        <view class="mark" style="width:100%"> 名称: {{ store_name }}</view>
+        <view class="mark"> id: {{ store_info.id }}</view>
+        <view class="mark" style="width:100%;display:flex;">
+            循环vuex数据列表：
+            <view wx:for="{{ store_info.list }}" wx:key="index">{{ item }}</view>
+        </view>
+    </view>
+
+    <button bindtap="updateStore">修改vuex信息</button>
+    <button bindtap="updateLocalData">修改页面data多层数据数据</button>
     <button bindtap="toPage">to---demo页面</button>
 </view>
